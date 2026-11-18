@@ -10,6 +10,6 @@ CREATE TABLE clientes(
 CREATE TABLE productos(
     id_producto SERIAL PRIMARY KEY,    -- Elijo serial porque es un número de ID y va a ir incrementando.
     descripcion VARCHAR(250) NOT NULL, --Texto largo que describe el producto
-    precio DECIMAL(10,2) NOT NULL,     --valor numérico para el precio. Permite hasta 8 dígitos y dos decimales.
+    precio DECIMAL(10,2) NOT NULL,     --valor numérico para el precio. Permite hasta 8 dígitos y dos decimales. No se elije FLOAT porque es importante la precisión de los decimales.
     esta_activo CHAR(2) NOT NULL       --Elegí CHAR ya que siempre van a ser dos caracteres los que describen si el producto está activo o no, SI o NO.
   );
