@@ -1,0 +1,1 @@
+-- Motor utilizado: PostgreSQL 18
