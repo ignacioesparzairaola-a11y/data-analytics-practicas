@@ -43,6 +43,9 @@ UPDATE inventario SET stock_actual = stock_actual-5 WHERE id_inventario=6;
 --UPDATE producto descontinuado
 UPDATE inventario SET activo=FALSE WHERE id_inventario=8;
 
+ALTER TABLE inventario
+RENAME COLUMN id_inventario TO id_producto;
+
 --SELECT validaciones
 -- Ver la tabla completa para confirmar que los datos se cargaron
 SELECT * FROM inventario;
