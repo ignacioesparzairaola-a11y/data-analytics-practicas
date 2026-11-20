@@ -1,9 +1,7 @@
 -- Motor utilizado: PostgreSQL 18
--- === CREATE - Crear la base de datos ===
+--- === Se crea la base de datos ===
 CREATE DATABASE Ventas_Tech_DB
-  
 -- === Sección 1: DROP ===
--- Se borran las tablas en caso de que existan previamente, para evitar duplicados y errores.
 DROP TABLE IF EXISTS ventas;
 DROP TABLE IF EXISTS productos;
 DROP TABLE IF EXISTS clientes;
@@ -40,8 +38,8 @@ CREATE TABLE Ventas --tabla de hechos
 	cantidad INT NOT NULL,
 	precio_unitario DECIMAL(10,2) NOT NULL,
 	fecha_venta DATE NOT NULL,
-	FOREIGN KEY id_cliente REFERENCES clientes(id_cliente),
-	FOREIGN KEY id_producto REFERENCES productos(id_producto)
+	FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),--foreign Key
+	FOREIGN KEY (id_producto) REFERENCES productos(id_producto)--foreign Key
 	);
 -- === Sección 3: INSERT ===
 INSERT INTO categorias (id_categoria, nombre_categoria, descripcion) VALUES
@@ -58,12 +56,12 @@ INSERT INTO clientes (id_cliente, nombre, email, ciudad, fecha_registro) VALUES
   (5, 'Laura Torres', 'laura@mail.com',  'Tucumán',      '2024-03-01');
 
 INSERT INTO productos (id_producto, nombre_producto, id_categoria, precio, stock, activo) VALUES
-  (1, 'Laptop Pro 15',      1, 1200.00, 15, 1),
-  (2, 'Mouse Inalámbrico',  2,   28.00, 80, 1),
-  (3, 'Monitor 4K 27',      1,  450.00, 12, 1),
-  (4, 'Auriculares BT Pro', 3,  120.00, 35, 1),
-  (5, 'SSD Externo 1TB',    4,  130.00, 18, 1),
-  (6, 'Teclado Mecánico',   2,   95.00, 40, 1);
+  (1, 'Laptop Pro 15',      1, 1200.00, 15, TRUE),
+  (2, 'Mouse Inalámbrico',  2,   28.00, 80, TRUE),
+  (3, 'Monitor 4K 27',      1,  450.00, 12, TRUE),
+  (4, 'Auriculares BT Pro', 3,  120.00, 35, TRUE),
+  (5, 'SSD Externo 1TB',    4,  130.00, 18, TRUE),
+  (6, 'Teclado Mecánico',   2,   95.00, 40, TRUE);
 
 INSERT INTO ventas (id_venta, id_cliente, id_producto, cantidad, precio_unitario, fecha_venta) VALUES
   ( 1, 1, 1, 2, 1200.00, '2024-03-05'),
